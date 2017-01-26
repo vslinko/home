@@ -4,3 +4,5 @@ email = vslinko@yahoo.com
 
 [push]
 default = simple
+[core]
+	excludesfile = /Users/vslinko/.gitignore_global
