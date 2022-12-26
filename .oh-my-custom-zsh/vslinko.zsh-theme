@@ -8,6 +8,8 @@ VSLINKO_AT="%{$fg[white]%}@"
 
 if [ "x$HOST" = "xvslinko-macbook.local" ]; then
   VSLINKO_HOST="%{$fg[green]%}-"
+elif [ "x$HOST" = "xmsk-n1t-0341.local" ]; then
+  VSLINKO_HOST="%{$fg[green]%}-"
 else
   VSLINKO_HOST="%{$fg[red]%}%m"
 fi
