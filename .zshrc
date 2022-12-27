@@ -65,9 +65,7 @@ export DYLD_FALLBACK_LIBRARY_PATH="/usr/local/lib:/usr/lib:/lib"
 
 
 # brew
-if [[ $(arch) == 'arm64' ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
+if [ -x /usr/local/bin/brew ]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 
@@ -75,13 +73,17 @@ fi
 
 # python
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-export PYCURL_SSL_LIBRARY="openssl"
+if [ -d "$PYENV_ROOT" ]; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  export PYCURL_SSL_LIBRARY="openssl"
+fi
 
 
 # direnv
-eval "$(direnv hook zsh)"  # zsh поменять на bash, если используется он
+if [ -x /usr/local/bin/direnv ]; then
+  eval "$(direnv hook zsh)"  # zsh поменять на bash, если используется он
+fi
 
 
 
