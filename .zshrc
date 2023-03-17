@@ -44,6 +44,12 @@ alias jj='npx jest --coverage=no --watch'
 
 export GPG_TTY=$(tty)
 
+makeurl() {
+  url=$1
+  echo "[InternetShortcut]" > source.url
+  echo "URL=$url" >> source.url
+}
+
 video2gif() {
   in=$1
   if [ ! -f "$in" ]; then
